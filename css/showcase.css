@@ -1,0 +1,301 @@
+/* ==========================================================================
+   SkillBridge Deliverables Showcase & Simulation Control Stylesheet
+   ========================================================================== */
+
+/* Showcase Mode Indicator & Bar */
+.showcase-banner {
+  background: linear-gradient(90deg, #1E293B 0%, #0F172A 100%);
+  border-bottom: 1px solid var(--border-medium);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.showcase-banner strong {
+  color: var(--text-primary);
+}
+
+.showcase-indicator-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+/* Simulation Controls Dropdown / Drawer */
+.simulation-panel-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.simulation-panel-trigger:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-medium);
+}
+
+.simulation-flyout {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  width: 320px;
+  box-shadow: var(--shadow-xl);
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.simulation-flyout.open {
+  display: flex;
+}
+
+.simulation-header {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 8px;
+}
+
+.simulation-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 22px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+/* Deliverable Explanation Banner (Floating / Sticky when screen preset is selected) */
+.deliverable-callout {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.deliverable-callout-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.callout-badge {
+  background: var(--primary-gradient);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.callout-desc {
+  font-size: 0.84375rem;
+  color: var(--text-secondary);
+}
+
+.callout-desc strong {
+  color: var(--text-primary);
+}
+
+/* Deliverables Gallery View (Modal / Full View) */
+.gallery-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 14, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.gallery-modal-overlay.open {
+  display: flex;
+}
+
+.gallery-modal-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  max-width: 1100px;
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.gallery-header {
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+}
+
+.gallery-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gallery-body {
+  padding: 28px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  scrollbar-width: thin;
+}
+
+.gallery-item-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.gallery-item-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.gallery-item-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+}
+
+.gallery-item-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 6px;
+}
+
+.gallery-item-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.gallery-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.gallery-item-tag {
+  font-size: 0.6875rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+.gallery-view-btn {
+  margin-top: auto;
+  width: 100%;
+  font-size: 0.8125rem;
+}
